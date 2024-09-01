@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors:{
-        primary: "#252931"
+        primary: "#252931",
+        placeholder: "#5F6571"
       },
     },
   },
