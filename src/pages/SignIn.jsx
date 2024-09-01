@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import LogoComp from '../components/signInComps/LogoComp'
 import InputComp from '../components/InputComp'
 import SignInButton from '../components/signInComps/SignInButton'
+
 
 const SignIn = () => {
 
@@ -14,7 +15,7 @@ const SignIn = () => {
             <LogoComp />
 
             {/* user and pwd inputs */}
-            <div className='w-full flex flex-col gap-[16px] items-center'>
+            <form className='w-full flex flex-col gap-[16px] items-center'>
                 <InputComp
                     name='email'
                     placeholder='Enter your username or Email'
@@ -31,12 +32,12 @@ const SignIn = () => {
                     setSetter={setPassword}
                 />
 
-                <div className='w-full mt-[14px]'>
+                <div className='w-full mt-[14px] flex flex-col gap-[24px]'>
                     <p className='text-[14px] text-left'>Forgot password?</p>
 
                     <SignInButton />
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
