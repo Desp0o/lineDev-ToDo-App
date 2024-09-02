@@ -1,5 +1,6 @@
 import React from 'react'
 import LoginForm from '../components/signInComps/LoginForm'
+import LoginPageCardComp from '../components/signInComps/LoginPageCardComp'
 import Pattern from '../components/signInComps/Pattern'
 
 

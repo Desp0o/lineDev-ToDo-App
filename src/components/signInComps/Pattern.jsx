@@ -122,15 +122,6 @@ const Pattern = () => {
             "attentionText": "Attention: They Like Our Old Project",
             "toDo": ["Create User Flow", "Make Design Sistem", "Deside Color", "Make main Logo"]
         },
-        {
-            "tags": ["#Website", "#Clients"],
-            "gradient1": "#CCF4D0",
-            "gradient2": "#CFE9D5",
-            "textColor": "#11AD17",
-            "title": "Searching Inspirations For Upcoming Projects",
-            "activeBulletsNum": 7,
-            "attentionText": "Attention: They Like Our Old Project",
-        },
 
         {
             "tags": ["#Website", "#Clients"],
@@ -221,7 +212,7 @@ const Pattern = () => {
     ]
 
     return (
-        <div className='gap-x-[5px] gap-y-[10px] columns-3 overflow-hidden'>
+        <div className='hidden xl:block gap-x-[5px] gap-y-[10px] columns-3 overflow-hidden'>
             {
                 cardsArray.map((item, index) => {
                     return (
