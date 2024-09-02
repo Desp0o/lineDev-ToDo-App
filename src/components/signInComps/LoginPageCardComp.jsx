@@ -1,24 +1,33 @@
 import React from 'react'
 import { listCyrcle } from '../../assets/icons/listCircle'
 
-const LoginPageCardComp = ({gradient1, gradient2 ,textColor, activeBulletsNum, attentionText, toDo }) => {
+const LoginPageCardComp = ({ tags, gradient1, gradient2, textColor, title, activeBulletsNum, attentionText, toDo }) => {
 
     const bullets = Array.from({ length: 20 })
     const activeBullets = Array.from({ length: activeBulletsNum })
 
     return (
         <div className='w-[162px] rounded-[12px] overflow-hidden	py-[12px] pl-[12px]
-        flex flex-col gap-[9px]' style={{ color: textColor, background: `linear-gradient(to top right, ${gradient1}, ${gradient2}`, }}>
+        flex flex-col gap-[9px]' style={{ color: textColor, background: `linear-gradient(to bottom left, ${gradient1}, ${gradient2}` }}>
             {/* tags */}
             <div className='flex gap-[5px]'>
                 {/* single tag */}
-                <div className='bg-[#FFFFFF] px-[3.21px] py-[6.42px] rounded-[12px]'>
-                    <p className='text-[11px] text-[#F77E7E]'>#Website</p>
-                </div>
+
+                {
+                    tags?.map((item, index) => {
+                        return (
+                            <div key={index} className='bg-[#FFFFFF] px-[3.21px] py-[6.42px] rounded-[12px]'>
+                                <p className='text-[11px] text-[#F77E7E]'>{item}</p>
+                            </div>
+                        )
+                    })
+                }
+
+
             </div>
 
             {/* title */}
-            <h2 className='text-[11px] leading-[14px]'>Searching Inspirations For Upcoming Projects</h2>
+            <h2 className='text-[11px] leading-[14px]'>{title}</h2>
 
             {/* progress */}
             <div className='flex flex-col'>
@@ -52,22 +61,22 @@ const LoginPageCardComp = ({gradient1, gradient2 ,textColor, activeBulletsNum, a
             </div>
 
             {/* attention */}
-            {!attentionText &&
+            {attentionText &&
                 <p className='mt-[9px] text-[8px] leading-[10px]'>{`Attention: ${attentionText}`}</p>}
 
             {/* To Do list */}
             {
-                !toDo &&
+                toDo &&
                 <div className=''>
                     <p className='text-[11px] leading-[14px]'>To Do</p>
 
                     <ul className='list-disc list-outside'>
                         {
-                            bullets?.map((item, index)=>{
-                                return(
+                            toDo.map((item, index) => {
+                                return (
                                     <li key={index} className='flex gap-[3px] items-center'>
                                         {listCyrcle}
-                                        <p className='text-[8px] leading-[10px]'>asdasd</p>
+                                        <p className='text-[8px] leading-[10px]'>{item}</p>
                                     </li>
                                 )
                             })
