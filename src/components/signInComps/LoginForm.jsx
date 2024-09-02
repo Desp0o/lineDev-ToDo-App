@@ -9,8 +9,8 @@ const LoginForm = () => {
     const [password, setPassword] = useState('')
 
     return (
-        <div className='w-full h-screen xl:h-auto text-primary px-[16px] pt-[72px] xl:py-[64px] pb-[px-121px] flex flex-col items-center
-        xl:w-[669px] bg-[#F6F6F7] xl:rounded-[15px]'>
+        <div className='w-full xl:w-[669px] h-auto text-primary px-[16px] pt-[72px] pb-[121px] xl:pb-[64px] xl:py-[64px] flex flex-col items-center
+         bg-[#F6F6F7] xl:rounded-[15px]'>
             {/* logo and title */}
             <LogoComp />
 

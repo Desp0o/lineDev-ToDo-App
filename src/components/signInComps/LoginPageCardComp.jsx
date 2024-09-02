@@ -7,8 +7,8 @@ const LoginPageCardComp = ({ tags, gradient1, gradient2, textColor, title, activ
     const activeBullets = Array.from({ length: activeBulletsNum })
 
     return (
-        <div className='w-[162px] rounded-[12px] overflow-hidden	py-[12px] pl-[12px]
-        flex flex-col gap-[9px]' style={{ color: textColor, background: `linear-gradient(to bottom left, ${gradient1}, ${gradient2}` }}>
+        <div className='w-[162px] h-auto rounded-[12px] overflow-hidden py-[12px] pl-[12px]
+        flex flex-col gap-[9px] mb-[10px]' style={{ color: textColor, background: `linear-gradient(to bottom left, ${gradient1}, ${gradient2}` }}>
             {/* tags */}
             <div className='flex gap-[5px]'>
                 {/* single tag */}
@@ -62,7 +62,7 @@ const LoginPageCardComp = ({ tags, gradient1, gradient2, textColor, title, activ
 
             {/* attention */}
             {attentionText &&
-                <p className='mt-[9px] text-[8px] leading-[10px]'>{`Attention: ${attentionText}`}</p>}
+                <p className='mt-[9px] text-[8px] leading-[10px]'>{attentionText}</p>}
 
             {/* To Do list */}
             {
