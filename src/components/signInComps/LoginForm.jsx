@@ -9,13 +9,13 @@ const LoginForm = () => {
     const [password, setPassword] = useState('')
 
     return (
-        <div className='text-primary px-[16px] xl:px-[64px] pt-[72px] pb-[px-121px] flex flex-col items-center
-        xl:w-[669px] bg-[#F6F6F7]'>
+        <div className='w-full h-screen xl:h-auto text-primary px-[16px] pt-[72px] xl:py-[64px] pb-[px-121px] flex flex-col items-center
+        xl:w-[669px] bg-[#F6F6F7] xl:rounded-[15px]'>
             {/* logo and title */}
             <LogoComp />
 
             {/* user and pwd inputs */}
-            <form className='w-[343px] flex flex-col gap-[16px] items-center mt-[48px]'>
+            <form className='w-[343px] xl:w-[476px] flex flex-col gap-[16px] items-center mt-[48px]'>
                 <InputComp
                     name='email'
                     placeholder='Enter your username or Email'
@@ -41,14 +41,14 @@ const LoginForm = () => {
 
             <div className='mt-[32px] flex flex-col gap-[32px] items-center'>
                 {/* divider */}
-                <div className='w-[343px] flex items-center gap-[10px]'>
+                <div className='w-[343px] xl:w-[476px] flex items-center gap-[10px]'>
                     <div className='w-full h-[1px] bg-[#CFD3DA]' />
                     <p className='text-[14px]'>OR</p>
                     <div className='w-full h-[1px] bg-[#CFD3DA]' />
                 </div>
 
                 {/* google button */}
-                <button className='w-[343px] h-[56px] border-[1px] border-[#CFD3D9] rounded-[30px] flex items-center justify-center gap-[12px]'>
+                <button className='w-full h-[56px] border-[1px] border-[#CFD3D9] rounded-[30px] flex items-center justify-center gap-[12px]'>
                     {googleAuthIcon}
                     <p className='text-[14px]'>Sign in with google</p>
                 </button>
