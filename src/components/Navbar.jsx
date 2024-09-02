@@ -8,7 +8,7 @@ import { dropDownIcon } from '../assets/icons/DropDownIcon'
 
 const Navbar = () => {
   return (
-    <div className='absolute w-full h-[56px] lg:h-[68px] border-b-[1px] px-[16px] lg:px-[40px] py-[8px] box-border flex items-center justify-between'>
+    <div className='w-full h-[56px] lg:h-[68px] border-b-[1px] px-[16px] lg:px-[40px] py-[8px] box-border flex items-center justify-between fixed lg:relative'>
         <span className='lg:hidden'>{burgerMenu}</span>
         <SearchComp />
 
