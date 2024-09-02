@@ -3,7 +3,7 @@ import { plusIcon } from '../assets/icons/plusIcon'
 
 const AddTask = () => {
     return (
-        <div className='h-[48px] w-full rounded-[8px] px-[14px] py-[10px] shadow-taskShadow flex items-center gap-[6px] cursor-pointer'>
+        <div className='h-[48px] w-[343px] lg:w-[570px] rounded-[8px] px-[14px] py-[10px] shadow-taskShadow flex items-center gap-[6px] cursor-pointer'>
            {plusIcon} AddTask</div>
     )
 }

@@ -8,7 +8,7 @@ const Home = () => {
     <Navbar />
     <div className='pt-[88px] w-full flex flex-col items-center'>
       
-      <div className='w-[343px]'>
+      <div className=''>
         <AddTask />
       </div>
     </div>
