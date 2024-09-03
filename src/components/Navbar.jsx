@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { burgerMenu } from '../assets/icons/burgerMenu'
 import { searchIcon } from '../assets/icons/searchIcon'
 import { userIcon } from '../assets/icons/userIcon'
 import imgAvatar from "../assets/images/avatar.jpeg"
 import SearchComp from './SearchComp'
 import { dropDownIcon } from '../assets/icons/DropDownIcon'
+import { RedirectToUserProfile, UserButton} from '@clerk/clerk-react'
+import { useUser } from '@clerk/clerk-react'
+import { useNavigate } from 'react-router-dom'
+
 
 const Navbar = () => {
+
+  const { user } = useUser()
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    console.log(user);
+    
+  },[])
+
+  const redirectToProfile = () => {
+    navigate('/profile')
+  }
+
   return (
     <div className='w-full h-[56px] lg:h-[68px] border-b-[1px] px-[16px] lg:px-[40px] py-[8px] box-border flex items-center justify-between fixed lg:relative'>
         <span className='lg:hidden'>{burgerMenu}</span>
@@ -18,15 +35,22 @@ const Navbar = () => {
                 <p>EN</p>
                 {dropDownIcon}
             </div>
-
-            <img src={imgAvatar} alt='user avatar' className='w-[40px] h-[40px] rounded-full' />
+           <UserButton appearance={
+            {
+              elements:{
+                avatarBox: "h-[44px] w-[44px]",
+                userButtonPopoverFooter: "hidden",
+                cardBox: "!h-[30rem]"
+              }
+            }
+           }/>
         </div>
 
         {/* search | avatar */}
         <div className='flex items-center gap-[18px] lg:hidden'>
             <span>{searchIcon}</span>
             <span className='h-[16px] w-[1px] bg-[#82868F]' />
-            <span>{userIcon}</span>
+            <span onClick={redirectToProfile}>{userIcon}</span>
         </div>
     </div>
   )

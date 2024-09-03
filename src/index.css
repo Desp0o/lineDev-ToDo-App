@@ -32,3 +32,24 @@ input{
   column-count: 3;
   column-gap: 5px;
 }
+
+/* user dash modal settings */
+.cl-cardBox{
+  height: 100% !important;
+}
+
+.cl-internal-lk7758,
+.cl-internal-df7v37,
+.cl-internal-13u79ez{
+  display: none !important;
+}
+
+/* user image hover circle */
+.cl-internal-c4jh7f:focus{
+  box-shadow:none;
+}
+
+/* remove user image hover animation */
+.cl-internal-gpirto{
+  background: none;
+}
