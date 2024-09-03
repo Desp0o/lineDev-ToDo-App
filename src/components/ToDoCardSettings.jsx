@@ -4,9 +4,11 @@ import { completeIcon } from '../assets/icons/completeIcon'
 import { editIcon } from '../assets/icons/editIcon'
 import { deleteIcon } from '../assets/icons/deleteIcon'
 import { completeRow } from '../functions/CompleteFunction'
-import { deleteTask } from '../functions/DeleteFunction'
+import { UseDeleteTask } from '../functions/DeleteFunction'
+
 
 const ToDoCardSettings = ({taskId, complete, refetch}) => {
+    const deleteTask = UseDeleteTask()
 
     return (
         <div className='h-[172px] w-[188px] bg-[#F6F6F7] px-[14px] py-[8px] rounded-[8px]
@@ -17,7 +19,7 @@ const ToDoCardSettings = ({taskId, complete, refetch}) => {
                 <p>Importance</p>
             </div>
 
-            <div className='h-[34px] flex gap-[12px] items-center cursor-pointer' onClick={()=> completeRow(taskId, complete)}>
+            <div className='h-[34px] flex gap-[12px] items-center cursor-pointer' onClick={()=> completeRow(taskId, complete, refetch)}>
                 <span>{completeIcon}</span>
                 <p>Complete</p>
             </div>

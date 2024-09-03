@@ -2,10 +2,13 @@ import React, { useEffect, useState, useRef } from 'react'
 import { calendarIcon } from '../assets/icons/calendar'
 import { cardDots } from '../assets/icons/cardDots'
 import ToDoCardSettings from './ToDoCardSettings'
+import { useDispatch, useSelector } from 'react-redux'
+import { setAactiveIndex } from '../redux/settingSlicer'
 
 const ToDoCard = ({ date, text, bg, index, taskId, complete, importance, refetch }) => {
 
-  const [activeIndex, setActiveIndex] = useState(null)
+  const activeIndex = useSelector(state => state.settingPanelStore.value)
+  const dispatch = useDispatch()
   const settingRef = useRef()
 
   useEffect(()=>{
@@ -14,7 +17,7 @@ const ToDoCard = ({ date, text, bg, index, taskId, complete, importance, refetch
       if(settingRef.current){
 
         if(!settingRef.current.contains(e.target)){
-          setActiveIndex()
+          dispatch(setAactiveIndex(null))
         }
       }
     }
@@ -24,9 +27,9 @@ const ToDoCard = ({ date, text, bg, index, taskId, complete, importance, refetch
 
   const handleSettings = () => {
     if(index === activeIndex){
-      setActiveIndex(null)
+      dispatch(setAactiveIndex(null))
     }else{
-      setActiveIndex(index)
+      dispatch(setAactiveIndex(index))
     }
   }
 
