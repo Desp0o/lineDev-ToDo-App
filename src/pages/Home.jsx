@@ -3,13 +3,11 @@ import Layout from '../components/Layout'
 import ToDoCard from '../components/ToDoCard'
 import { supabase } from '../supabaseConfig'
 import { useQuery } from 'react-query'
-import { useUser } from '@clerk/clerk-react'
 import { DateFormatter } from '../components/DateFormatter'
 import AddTask from '../components/AddTask'
 
 const Home = () => {
 
-  const { user } = useUser()
 
   const fetchSupa = async () => {
     let { data } = await supabase.from("todos").select("*")
@@ -42,7 +40,7 @@ const Home = () => {
   return (
     <Layout>
       <AddTask refetch={refetch}/>
-      <div className='grid lg:grid-cols-4 gap-[30px] grid-flow-dense	'>
+      <div className='grid lg:grid-cols-4 gap-[30px] grid-flow-dense mt-[56px]'>
         {data && data.map((toDo, index) => {
           const rand = Math.floor(Math.random() * 4) + 1;
           return (
