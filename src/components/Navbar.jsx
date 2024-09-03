@@ -15,11 +15,6 @@ const Navbar = () => {
   const { user } = useUser()
   const navigate = useNavigate()
 
-  useEffect(()=>{
-    console.log(user);
-    
-  },[])
-
   const redirectToProfile = () => {
     navigate('/profile')
   }
