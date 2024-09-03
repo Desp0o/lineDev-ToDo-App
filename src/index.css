@@ -53,3 +53,7 @@ input{
 .cl-internal-gpirto{
   background: none;
 }
+
+.cl-internal-4x6jej > :not(:first-of-type){
+  padding: 0 0;
+}
