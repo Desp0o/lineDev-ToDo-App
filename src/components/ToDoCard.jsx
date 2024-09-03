@@ -3,7 +3,7 @@ import { calendarIcon } from '../assets/icons/calendar'
 import { cardDots } from '../assets/icons/cardDots'
 import ToDoCardSettings from './ToDoCardSettings'
 
-const ToDoCard = ({ date, text, bg, index }) => {
+const ToDoCard = ({ date, text, bg, index, taskId, complete, importance, refetch }) => {
 
   const [activeIndex, setActiveIndex] = useState(null)
   const settingRef = useRef()
@@ -68,7 +68,12 @@ const ToDoCard = ({ date, text, bg, index }) => {
 
       {activeIndex === index && (
             <div className="absolute -bottom-[160px] left-[30px] z-10 group/card" ref={settingRef}>
-              <ToDoCardSettings />
+              <ToDoCardSettings 
+                refetch={refetch}
+                taskId={taskId} 
+                complete={complete} 
+                importance={importance}
+              />
             </div>
           )}
 
