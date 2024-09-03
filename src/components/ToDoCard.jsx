@@ -5,7 +5,7 @@ import { cardDots } from '../assets/icons/cardDots'
 const ToDoCard = ({date, text }) => {
   return (
     <div 
-        className='w-[343px] px-[16px] py-[12px] rounded-[10px] flex flex-col gap-[22px]
+        className='w-[343px] lg:w-[252px] px-[16px] py-[12px] rounded-[10px] flex flex-col gap-[22px]
                    hover:drop-shadow-[1px_1px_6px_rgba(0,0,0,0.25)] transition-all'
         style={{backgroundColor:"#E3EBFC"}}
     >
