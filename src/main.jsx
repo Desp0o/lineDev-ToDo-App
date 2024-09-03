@@ -15,16 +15,7 @@ if (!PUBLISHABLE_KEY) {
 }
 
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnMount: "always",
-      refetchOnWindowFocus: "always",
-      refetchOnReconnect: "always",
-      refetchIntervalInBackground: true,
-    }
-  }
-})
+const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={queryClient}>
