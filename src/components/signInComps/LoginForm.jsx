@@ -7,7 +7,8 @@ const LoginForm = () => {
     return (
         <div className='w-full xl:w-[669px] h-auto text-primary px-[16px] pt-[72px] pb-[121px] xl:pb-[64px] xl:py-[64px] flex flex-col items-center
          bg-[#F6F6F7] xl:rounded-[15px]'>
-            <SignIn appearance={{
+            <SignIn 
+            appearance={{
                 elements: {
                 main: "flex flex-col-reverse",
                 formFieldInput:"h-[56px]",
