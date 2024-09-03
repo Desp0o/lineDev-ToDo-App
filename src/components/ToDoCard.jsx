@@ -20,7 +20,14 @@ const ToDoCard = ({ date, text, bg }) => {
       <div className='flex flex-col gap-[16px]'>
         <div
           className='flex gap-[10px] items-center px-[14px] py-[4px] bg-black w-fit rounded-[30px]'
-          style={{ backgroundColor: "#F1F5FE" }}
+          style={{
+            backgroundColor:
+              bg === 1 ? "#FDF8F2" :
+                bg === 2 ? "#FDF2FA" :
+                  bg === 3 ? "#F3F1FD" :
+                    bg === 4 ? "#FDF1F1" :
+                      "#F1FAFD"
+          }}
         >
           {calendarIcon}
           <p className='text-[14px] leading-[20px]'>{date}</p>
