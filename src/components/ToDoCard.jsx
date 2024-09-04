@@ -4,6 +4,8 @@ import { cardDots } from '../assets/icons/cardDots'
 import ToDoCardSettings from './ToDoCardSettings'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAactiveIndex } from '../redux/settingSlicer'
+import { MdLabelImportant } from "react-icons/md";
+
 
 const ToDoCard = ({ date, text, bg, index, taskId, complete, important, refetch }) => {
 
@@ -47,6 +49,8 @@ const ToDoCard = ({ date, text, bg, index, taskId, complete, important, refetch 
                     "#E4F6FC"
         }}
       >
+       {important &&  <span className='absolute right-[10px] rotate-90'><MdLabelImportant/></span>}
+        
         {/* top section */}
         <div className='flex flex-col gap-[16px]'>
           <div
