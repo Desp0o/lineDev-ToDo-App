@@ -8,6 +8,7 @@ import { UseDeleteTask } from "../functions/DeleteFunction";
 import UseImportance from "../functions/UseImportance";
 import { useDispatch } from "react-redux";
 import { setTodoTextForEdit } from "../redux/todoEditSlicer";
+import { toastError } from "./ToastError";
 
 const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
   const deleteTask = UseDeleteTask();
@@ -17,7 +18,12 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
   const dispatch = useDispatch();
 
   const getTextValueFromTask = () => {
-    dispatch(setTodoTextForEdit({ value: text, id: taskId }));
+    //თუ დასრულებულია ტასკი ჩასწრების უფლება არ აქვს
+    if(complete){
+        toastError('You cant edit completed todo')
+    }else{
+        dispatch(setTodoTextForEdit({ value: text, id: taskId }));
+    }
   };
 
   return (
