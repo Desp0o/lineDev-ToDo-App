@@ -52,7 +52,7 @@ const Home = () => {
                 date={<DateFormatter dateProp={toDo.created_at}/>}
                 taskId={toDo.id}
                 complete={toDo.complate}
-                importance={toDo.importance}
+                important={toDo.important}
                 refetch={refetch}
               />
           )

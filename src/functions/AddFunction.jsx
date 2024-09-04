@@ -1,6 +1,5 @@
 
 import { supabase } from "../supabaseConfig";
-import { toast } from "react-toastify";
 import { notifySuccess } from "../components/ToastSuccess";
 import { toastError } from "../components/ToastError";
 

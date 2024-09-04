@@ -5,7 +5,7 @@ import ToDoCardSettings from './ToDoCardSettings'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAactiveIndex } from '../redux/settingSlicer'
 
-const ToDoCard = ({ date, text, bg, index, taskId, complete, importance, refetch }) => {
+const ToDoCard = ({ date, text, bg, index, taskId, complete, important, refetch }) => {
 
   const activeIndex = useSelector(state => state.settingPanelStore.value)
   const dispatch = useDispatch()
@@ -75,7 +75,7 @@ const ToDoCard = ({ date, text, bg, index, taskId, complete, importance, refetch
                 refetch={refetch}
                 taskId={taskId} 
                 complete={complete} 
-                importance={importance}
+                important={important}
               />
             </div>
           )}
