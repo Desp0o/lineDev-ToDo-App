@@ -4,12 +4,9 @@ import { PieChart } from "../components/PieChart";
 import FetchData from "../functions/FetchData";
 import InfoBlock from "../components/InfoBlock";
 import Spinner from "../components/Spinner";
-import { useDispatch } from "react-redux";
-import { setNavigationPage } from "../redux/navigationSlicer";
 
 
 const Dashboard = () => {
-  const dispatch = useDispatch()
   const { data, isLoading } = FetchData();
   const [completeLength, setCompleteLength] = useState(0);
   const [inProgressLength, setInProgressLength] = useState(0);
@@ -27,10 +24,6 @@ const Dashboard = () => {
     const isImportant = data?.filter((item) => item.important === true);
     setImportantLength(isImportant?.length);
   }, [data]);
-
-  useEffect(()=>{
-    dispatch(setNavigationPage(2))
-  },[])
 
 
   return (

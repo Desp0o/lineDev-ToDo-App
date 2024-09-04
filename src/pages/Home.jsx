@@ -5,16 +5,9 @@ import { DateFormatter } from "../components/DateFormatter";
 import AddTask from "../components/AddTask";
 import Spinner from "../components/Spinner";
 import FetchData from "../functions/FetchData";
-import { useDispatch } from "react-redux";
-import { setNavigationPage } from "../redux/navigationSlicer";
 
 const Home = () => {
   const { data, isLoading, refetch } = FetchData();
-  const dispatch = useDispatch()
-
-  useEffect(()=>{
-    dispatch(setNavigationPage(0))
-  },[])
 
   return (
     <Layout>
