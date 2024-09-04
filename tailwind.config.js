@@ -12,7 +12,10 @@ export default {
       },
       boxShadow: {
         'taskShadow': '0 1px 8px 0 rgba(0, 0, 0, 0.25)',
-      }
+      },
+      screens: {
+        '1xl': '1400px',
+      },
     },
   },
   plugins: [],

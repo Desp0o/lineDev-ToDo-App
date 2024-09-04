@@ -31,8 +31,12 @@ const Dashboard = () => {
           <Spinner />
         </span>
       ) : (
-        <div className="2xl:max-w-[1440px] mx-auto flex flex-col lg:items-center gap-[24px]">
-          <div className="grid grid-cols-2 gap-y-[16px] lg:flex lg:gap-[24px]">
+        <div className="2xl:max-w-[1440px] mx-auto flex flex-col lg:items-center gap-[24px] pb-[50px]">
+          <div className="
+            grid grid-cols-2 place-items-center gap-y-[16px]  
+            md:justify-between md:flex md:gap-[24px]>
+            lg:grid lg:grid-cols-2 lg:gap-[16px]  
+            1xl:flex 1xl:gap-[24px]">
             <InfoBlock title="All Tasks" number={data?.length} />
             <InfoBlock
               title="In Progress"
@@ -42,7 +46,7 @@ const Dashboard = () => {
             <InfoBlock title="Done" number={completeLength} />
           </div>
 
-          <div className=" xl:w-[1080px]">
+          <div className="w-full 1xl:w-[1080px]">
             <PieChart
               completedTodos={completeLength}
               inProgessTodos={inProgressLength}

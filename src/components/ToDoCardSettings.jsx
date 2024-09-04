@@ -29,7 +29,7 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
   return (
     <div
       className="h-[172px] w-[188px] bg-[#F6F6F7] px-[14px] py-[8px] rounded-[8px]
-                    flex flex-col gap-[4px]"
+                    flex flex-col gap-[4px] drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]"
     >
       <div
         className="h-[34px] flex gap-[12px] items-center cursor-pointer"

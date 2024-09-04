@@ -5,7 +5,7 @@ import Sidebar from './Sidebar'
 const Layout = ({children}) => {
     return (
         
-        <div className='w-full h-screen grid grid-cols-[1fr] lg:grid-cols-[290px_1fr] grid-rows-[56px_1fr] lg:grid-rows-[68px_1fr] overflow-hidden'>
+        <div className='w-full h-screen grid grid-cols-[1fr] lg:grid-cols-[290px_1fr] grid-rows-[56px_1fr] lg:grid-rows-[68px_1fr]'>
 
             <div className='hidden lg:block col-start-1 row-start-1 row-end-3'>
                 <Sidebar />

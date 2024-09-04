@@ -7,8 +7,6 @@ import LegendComponent from "./LegendComponent";
 ChartJS.register(Title, Tooltip, ArcElement);
 
 
-
-  
   const legendArray = [
     {
       color: "#00A9D7",
