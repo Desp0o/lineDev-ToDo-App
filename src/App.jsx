@@ -15,22 +15,19 @@ function App() {
       <Routes>
 
         <Route path="/" element={
-            <>
-              <SignedIn>
-                <Home />
-              </SignedIn>
-              <SignedOut>
-                <SignIn />
-              </SignedOut>
-            </>
-          }
+          <>
+            <SignedIn>
+              <Home />
+            </SignedIn>
+            <SignedOut>
+              <SignIn />
+            </SignedOut>
+          </>
+        }
         />
-    <Route path="/dashboard" element={<SignedIn><Dashboard /></SignedIn>} />
-    <Route path="/sso-callback" element={<SSOCallback />} />
+        <Route path="/dashboard" element={<SignedIn><Dashboard /></SignedIn>} />
+        <Route path="/sso-callback" element={<SSOCallback />} />
       </Routes>
-
-
-
     </>
   )
 }
