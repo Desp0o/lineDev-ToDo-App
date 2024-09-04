@@ -1,49 +1,14 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../components/Layout'
 import ToDoCard from '../components/ToDoCard'
-import { supabase } from '../supabaseConfig'
-import { useQuery } from 'react-query'
 import { DateFormatter } from '../components/DateFormatter'
 import AddTask from '../components/AddTask'
-import { useUser } from '@clerk/clerk-react'
 import Spinner from '../components/Spinner'
+import FetchData from '../functions/FetchData'
 
 const Home = () => {
-  const { user } = useUser()
-  useEffect(() => {
-    console.log(user.firstName);
 
-  }, [])
-
-
-  const fetchSupa = async () => {
-    let { data, error } = await supabase.from("todos").select("*").eq("user_id", user.id)
-
-    if (error) {
-      console.log(error);
-
-    }
-    return data
-  }
-
-
-  useEffect(() => {
-    fetchSupa()
-  }, [])
-
-  const { data, refetch, isLoading } = useQuery(['todos'], () => fetchSupa(), {
-    staleTime: 50 * 1000 * 60
-  })
-
-  if (isLoading) {
-    console.log(isLoading);
-
-  }
-
-  if (data) {
-    console.log(data);
-
-  }
+  const { data, isLoading, refetch} = FetchData()
 
 
 

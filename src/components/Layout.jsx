@@ -15,7 +15,7 @@ const Layout = ({children}) => {
                 <Navbar />
             </div>
 
-            <div className='col-start-1 lg:col-start-2 pt-[32px] px-[16px] lg:px-[30px] overflow-auto '>
+            <div className='relative col-start-1 lg:col-start-2 pt-[32px] px-[16px] lg:px-[30px]'>
                 {children}
             </div>
 
