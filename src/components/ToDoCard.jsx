@@ -63,7 +63,7 @@ const ToDoCard = ({ date, text, bg, index, taskId, complete, important, refetch 
             {calendarIcon}
             <p className='text-[14px] leading-[20px]'>{date}</p>
           </div>
-          <p className='text-[14px] leading-[20px]'>{text}</p>
+          <p className='text-[14px] leading-[20px]' style={{textDecoration: complete ? "line-through" : "none"}}>{text}</p>
         </div>
 
         <span onClick={handleSettings} className='visible lg:invisible group-hover/card:lg:visible w-[24px] h-[24px] place-self-end cursor-pointer flex items-center justify-center'>{cardDots}</span>
