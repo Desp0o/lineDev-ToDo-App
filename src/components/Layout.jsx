@@ -12,7 +12,7 @@ const Layout = ({children}) => {
         <div className='w-full h-screen lg:pl-[290px] pt-[56px]'>
 
             <div className='-left-[290px] lg:flex fixed top-0 lg:left-0 bottom-0 z-[99] transition-all'
-            style={{left: isBurgerActive ? "0px" : "-290px"}}>
+            style={{left: window.innerWidth < 1024 && (isBurgerActive ? "0px" : "-290px")}}>
                 <Sidebar />
             </div>
             
