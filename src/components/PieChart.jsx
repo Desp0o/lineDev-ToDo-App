@@ -7,17 +7,7 @@ import LegendComponent from "./LegendComponent";
 ChartJS.register(Title, Tooltip, ArcElement);
 
 
-const data = {
-    labels: ["Important", "In Progress", "Complete"],
-    datasets: [
-      {
-        label: "Todo chart",
-        data: [3, 5, 1],
-        backgroundColor: ["#00A9D7", "#FFA400", "#80BC00"],
-        hoverOffset: 4,
-      },
-    ],
-  };
+
   
   const legendArray = [
     {
@@ -34,7 +24,18 @@ const data = {
     },
   ];
 
-export const PieChart = () => {
+export const PieChart = ({completedTodos, inProgessTodos, importantTodos}) => {
+  const data = {
+    labels: ["Important", "In Progress", "Complete"],
+    datasets: [
+      {
+        label: "Todo chart",
+        data: [importantTodos, inProgessTodos, completedTodos],
+        backgroundColor: ["#00A9D7", "#FFA400", "#80BC00"],
+        hoverOffset: 4,
+      },
+    ],
+  };
   return (
     <div className="w-full bg-[#FFFFFF] rounded-[8px] border-[1px] border-[#E7E8EA] px-[14px] pt-[12px] pb-[60px]">
         <p className="text-center lg:text-start text-[16px] lg:text-[20px] leading-[20px] lg:leading-[20px] border-b pb-[12px]">Task by Status</p>

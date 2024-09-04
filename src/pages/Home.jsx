@@ -10,10 +10,6 @@ const Home = () => {
 
   const { data, isLoading, refetch} = FetchData()
 
-
-
-
-
   return (
     <Layout>
       <AddTask refetch={refetch} />
