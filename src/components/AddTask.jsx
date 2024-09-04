@@ -5,6 +5,8 @@ import { useUser } from "@clerk/clerk-react";
 import { useSelector } from "react-redux";
 import { editIcon } from "../assets/icons/editIcon";
 import UseEditFunction from "../functions/UseEditFunction";
+import { LiaEdit } from "react-icons/lia";
+
 
 const AddTask = ({ refetch }) => {
   const editTask = UseEditFunction();
@@ -23,7 +25,7 @@ const AddTask = ({ refetch }) => {
   };
 
   return (
-    <div className="mx-auto relative h-[48px] w-[343px] lg:w-[570px] rounded-[8px] px-[14px] py-[10px] shadow-taskShadow flex items-center gap-[6px]">
+    <div className="bg-[#FFFFFF] mx-auto relative h-[48px] w-[343px] lg:w-[570px] rounded-[8px] px-[14px] py-[10px] shadow-taskShadow flex items-center gap-[6px]">
       {toDoTextForEdit.value.length === 0 ? (
         <span
           onClick={() => addTask(user.id, value, refetch)}
@@ -32,7 +34,7 @@ const AddTask = ({ refetch }) => {
           {plusIcon}
         </span>
       ) : (
-        <span onClick={() => editTask(value, refetch)}>{editIcon}</span>
+        <span className="absolute left-[20px] w-[24px] h-[24px] flex items-center justify-center cursor-pointer" onClick={() => editTask(value, refetch)}>{<LiaEdit />}</span>
       )}
       <input
         className="pl-[34px] w-full"
