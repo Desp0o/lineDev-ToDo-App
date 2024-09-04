@@ -5,13 +5,14 @@ import { supabase } from '../supabaseConfig'
 import { useQuery } from 'react-query'
 import { DateFormatter } from '../components/DateFormatter'
 import AddTask from '../components/AddTask'
+import { useUser } from '@clerk/clerk-react'
 
 const Home = () => {
-
+  const { user } = useUser()
 
   const fetchSupa = async () => {
-    let { data } = await supabase.from("todos").select("*")
-    return data
+      let { data } = await supabase.from("todos").select("*")
+      return data
   }
 
 
