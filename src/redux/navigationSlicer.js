@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const navigationSlicer = createSlice({
     name:"navigationSlicer",
     initialState:{
-        value: 0
+        value: null
     }, 
     reducers:{
         setNavigationPage(state, action){

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/Layout";
 import { useUser } from "@clerk/clerk-react";
 import { supabase } from "../supabaseConfig";
@@ -6,9 +6,18 @@ import { useQuery } from "react-query";
 import Spinner from "../components/Spinner";
 import ToDoCard from "../components/ToDoCard";
 import { DateFormatter } from "../components/DateFormatter";
+import { useDispatch } from "react-redux";
+import { setNavigationPage } from "../redux/navigationSlicer";
+
 
 const ImportantPage = () => {
   const { user } = useUser();
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(setNavigationPage(1))
+  },[])
+
 
   const fetchImportants = async () => {
     let { data, error } = await supabase
