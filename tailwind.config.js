@@ -8,7 +8,8 @@ export default {
     extend: {
       colors:{
         primary: "#252931",
-        placeholder: "#5F6571"
+        placeholder: "#5F6571",
+        backdrop: 'rgba(0, 0, 0, 0.24)',
       },
       boxShadow: {
         'taskShadow': '0 1px 8px 0 rgba(0, 0, 0, 0.25)',
