@@ -20,7 +20,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='bg-[#F6F6F7] w-full h-[56px] lg:h-[68px] border-b-[1px] px-[16px] lg:px-[40px] py-[8px] box-border flex items-center justify-between fixed z-[99] lg:relative'>
+    <div className='bg-[#F6F6F7] w-full h-[56px] lg:h-[68px] border-b-[1px] px-[16px] lg:px-[40px] py-[8px] box-border flex items-center justify-between fixed z-[99] lg:relative lg:pl-[332px]'>
         <span className='lg:hidden'>{burgerMenu}</span>
         <SearchComp />
 
