@@ -3,12 +3,12 @@ import { starIcon } from '../assets/icons/starIcon'
 import { completeIcon } from '../assets/icons/completeIcon'
 import { editIcon } from '../assets/icons/editIcon'
 import { deleteIcon } from '../assets/icons/deleteIcon'
-import { completeRow } from '../functions/CompleteFunction'
+import CompleteFunction from '../functions/CompleteFunction'
 import { UseDeleteTask } from '../functions/DeleteFunction'
-
 
 const ToDoCardSettings = ({taskId, complete, refetch}) => {
     const deleteTask = UseDeleteTask()
+    const completeRow = CompleteFunction()
 
     return (
         <div className='h-[172px] w-[188px] bg-[#F6F6F7] px-[14px] py-[8px] rounded-[8px]

@@ -17,12 +17,8 @@ export const UseDeleteTask = () => {
             console.error(error);
             toastError("Can't delete Todo");
         } else {
-            dispatch(setAactiveIndex(999999));
+            dispatch(setAactiveIndex(null));
             notifySuccess("Todo removed successfully");
-        }
-
-        // Refetch the main query
-        if (refetch) {
             refetch();
         }
     };

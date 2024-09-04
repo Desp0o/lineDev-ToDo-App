@@ -5,10 +5,7 @@ import { notifySuccess } from "../components/ToastSuccess";
 import { toastError } from "../components/ToastError";
 
 export const addTask = async (userId, todoValue, refetch) => {
-  // const notify = () => toast.success('Todo Added Successfully!', { autoClose: 1500, theme: "colored" });
-  const notifyErr = () => toast.error('Something went wrong!', { autoClose: 1500, theme: "colored" });
-
-
+  
   if (todoValue.length > 0) {
     const { data, error } = await supabase
       .from('todos')
