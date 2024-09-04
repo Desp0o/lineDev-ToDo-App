@@ -3,7 +3,6 @@ import { plusIcon } from "../assets/icons/plusIcon";
 import { addTask } from "../functions/AddFunction";
 import { useUser } from "@clerk/clerk-react";
 import { useSelector } from "react-redux";
-import { editIcon } from "../assets/icons/editIcon";
 import UseEditFunction from "../functions/UseEditFunction";
 import { LiaEdit } from "react-icons/lia";
 

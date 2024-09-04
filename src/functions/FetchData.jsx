@@ -18,10 +18,6 @@ const FetchData = () => {
     return data;
   };
 
-  useEffect(() => {
-    fetchSupa();
-  }, []);
-
   const { data, refetch, isLoading } = useQuery(["todos"], () => fetchSupa(), {
     staleTime: 50 * 1000 * 60,
   });
