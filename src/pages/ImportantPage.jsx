@@ -16,7 +16,8 @@ const ImportantPage = () => {
       .from("todos")
       .select("*")
       .eq("user_id", user.id)
-      .eq("important", true);
+      .eq("important", true)
+      .order("created_at", {ascending: false})
 
     if (error) {
       console.log(error);
@@ -44,9 +45,8 @@ const ImportantPage = () => {
             data.map((toDo, index) => {
               const rand = Math.floor(Math.random() * 4) + 1;
               return (
-                <div className="break-inside-avoid">
+                <div className="break-inside-avoid" key={index}>
                   <ToDoCard
-                    key={index}
                     index={index}
                     text={toDo.description}
                     bg={rand}

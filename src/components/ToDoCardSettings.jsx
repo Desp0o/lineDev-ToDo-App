@@ -23,7 +23,7 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
         toastError('You cant edit completed todo')
     }else{
         dispatch(setTodoTextForEdit({ value: text, id: taskId }));
-    }
+      }
   };
 
   return (

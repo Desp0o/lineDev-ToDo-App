@@ -5,24 +5,35 @@ import { DateFormatter } from "../components/DateFormatter";
 import AddTask from "../components/AddTask";
 import Spinner from "../components/Spinner";
 import FetchData from "../functions/FetchData";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   const { data, isLoading, refetch } = FetchData();
+
+  const isEditing = useSelector(state => state.todoEditStore)
+
+  useEffect(() => {
+    if (isEditing && isEditing.value.length !== 0) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    console.log(isEditing.value);
+    
+  }, [isEditing.value]);
+
 
   return (
     <Layout>
       <AddTask refetch={refetch} />
       <div className="flex justify-center mt-[56px]">
-        <div className="md:columns-2 lg:columns-3 1xl:columns-4 break-inside-avoid space-y-[23px] gap-[23px] justify-items-center">
+        <div className="md:columns-2 lg:columns-3 1xl:columns-4 break-inside-avoid space-y-[23px] gap-[23px] justify-items-center ">
           {isLoading ? (
             <Spinner />
           ) : data && data.length > 0 ? (
             data.map((toDo, index) => {
               const rand = Math.floor(Math.random() * 4) + 1;
               return (
-                <div className="break-inside-avoid">
+                <div className="break-inside-avoid" key={index}>
                   <ToDoCard
-                    key={index}
                     index={index}
                     text={toDo.description}
                     bg={rand}

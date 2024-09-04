@@ -19,11 +19,12 @@ const ToDoCard = ({
   const activeIndex = useSelector((state) => state.settingPanelStore.value);
   const dispatch = useDispatch();
   const settingRef = useRef();
+  const dotRefs = useRef()
 
   useEffect(() => {
     const handler = (e) => {
-      if (settingRef.current) {
-        if (!settingRef.current.contains(e.target)) {
+      if (settingRef.current && dotRefs.current) {
+        if (!settingRef.current.contains(e.target) && !dotRefs.current.contains(e.target)) {
           dispatch(setAactiveIndex(null));
         }
       }
@@ -93,6 +94,7 @@ const ToDoCard = ({
         </div>
 
         <span
+          ref={dotRefs}
           onClick={handleSettings}
           className="visible lg:invisible group-hover/card:lg:visible w-[24px] h-[24px] place-self-end cursor-pointer flex items-center justify-center"
         >
