@@ -1,11 +1,16 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React from "react";
+import Layout from "../components/Layout";
+import { PieChart } from "../components/PieChart";
+
+
+
+
 const Dashboard = () => {
   return (
     <Layout>
-        <div>Dashboard</div>
+      <PieChart />
     </Layout>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
