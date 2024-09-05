@@ -1,5 +1,5 @@
 import { Routes, Route, NavLink } from "react-router-dom"
-import SignIn from "./pages/SignIn"
+import Login from "./pages/Login"
 import Home from "./pages/Home"
 import Dashboard from "./pages/Dashboard";
 import { ToastContainer } from 'react-toastify';
@@ -21,7 +21,7 @@ function App() {
               <Home />
             </SignedIn>
             <SignedOut>
-              <SignIn />
+              <Login />
             </SignedOut>
           </>
         }

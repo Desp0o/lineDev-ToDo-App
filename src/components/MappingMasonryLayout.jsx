@@ -25,13 +25,11 @@ const MappingMasonryLayout = ({ data, isLoading, refetch }) => {
             <Spinner />
           ) : data && data.length > 0 ? (
             data.map((toDo, index) => {
-              const rand = Math.floor(Math.random() * 4) + 1;
               return (
                 <div className="break-inside-avoid" key={index}>
                   <ToDoCard
                     index={index}
                     text={toDo.description}
-                    bg={rand}
                     date={<DateFormatter dateProp={toDo.created_at} />}
                     taskId={toDo.id}
                     complete={toDo.complate}

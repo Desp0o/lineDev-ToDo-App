@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { burgerMenu } from "../assets/icons/burgerMenu";
 import { searchIcon } from "../assets/icons/searchIcon";
 import SearchComp from "./SearchComp";
-import { dropDownIcon } from "../assets/icons/DropDownIcon";
 import { UserButton } from "@clerk/clerk-react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setBurgerActive } from "../redux/burgerSlicer";
-import { useTranslation } from "react-i18next";
+import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
 
@@ -15,11 +14,7 @@ const Navbar = () => {
   const burgerMenuHandler = () => {
     dispatch(setBurgerActive(true))
   }
-  const { i18n } = useTranslation()
-  const selectLanguage = () => {
-    
-    i18n.changeLanguage('ge')
-  }
+  
 
   return (
     <div className="bg-[#F6F6F7] w-full h-[56px] lg:h-[68px] border-b-[1px] px-[16px] lg:px-[40px] py-[8px] box-border flex items-center justify-between fixed z-[99] lg:relative lg:pl-[332px]">
@@ -28,10 +23,7 @@ const Navbar = () => {
 
       {/* avatar */}
       <div className="flex itmes-center ml-[47px] lg:ml-[0px]">
-        <div onClick={selectLanguage} className="hidden lg:flex flex items-center gap-[10px] mr-[14px] cursor-pointer">
-          <p>EN</p>
-          {dropDownIcon}
-        </div>
+        <LanguageSelector />
 
         {window.innerWidth > 1023 && (
           <UserButton

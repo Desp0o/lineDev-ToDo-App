@@ -10,7 +10,7 @@ import { setTodoTextForEdit } from "../redux/todoEditSlicer";
 
 const AddTask = ({ refetch }) => {
   const editTask = UseEditFunction();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const [value, setValue] = useState("");
@@ -22,11 +22,11 @@ const AddTask = ({ refetch }) => {
     setValue(toDoTextForEdit.value);
   }, [toDoTextForEdit.value]);
 
-  useEffect(()=>{
-    if(value.length === 0){
-      dispatch(setTodoTextForEdit({id: null, value: ''}))
+  useEffect(() => {
+    if (value.length === 0) {
+      dispatch(setTodoTextForEdit({ id: null, value: "" }));
     }
-  },[value])
+  }, [value]);
 
   const handleValue = (e) => {
     setValue(e.target.value);

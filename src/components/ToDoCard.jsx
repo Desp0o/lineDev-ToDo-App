@@ -16,15 +16,19 @@ const ToDoCard = ({
   important,
   refetch,
 }) => {
+  const rand = Math.floor(Math.random() * 4) + 1;
   const activeIndex = useSelector((state) => state.settingPanelStore.value);
   const dispatch = useDispatch();
   const settingRef = useRef();
-  const dotRefs = useRef()
+  const dotRefs = useRef();
 
   useEffect(() => {
     const handler = (e) => {
       if (settingRef.current && dotRefs.current) {
-        if (!settingRef.current.contains(e.target) && !dotRefs.current.contains(e.target)) {
+        if (
+          !settingRef.current.contains(e.target) &&
+          !dotRefs.current.contains(e.target)
+        ) {
           dispatch(setAactiveIndex(null));
         }
       }
@@ -48,13 +52,13 @@ const ToDoCard = ({
                    hover:drop-shadow-[1px_1px_6px_rgba(0,0,0,0.25)] transition-all"
         style={{
           backgroundColor:
-            bg === 1
+            rand === 1
               ? "#FBF0E4"
-              : bg === 2
+              : rand === 2
               ? "#FCE4F5"
-              : bg === 3
+              : rand === 3
               ? "#E7E4FC"
-              : bg === 4
+              : rand === 4
               ? "#FCE4E4"
               : "#E4F6FC",
         }}
@@ -71,13 +75,13 @@ const ToDoCard = ({
             className="flex gap-[10px] items-center px-[14px] py-[4px] bg-black w-fit rounded-[30px]"
             style={{
               backgroundColor:
-                bg === 1
+                rand === 1
                   ? "#FDF8F2"
-                  : bg === 2
+                  : rand === 2
                   ? "#FDF2FA"
-                  : bg === 3
+                  : rand === 3
                   ? "#F3F1FD"
-                  : bg === 4
+                  : rand === 4
                   ? "#FDF1F1"
                   : "#F1FAFD",
             }}
