@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { plusIcon } from "../assets/icons/plusIcon";
 import { addTask } from "../functions/AddFunction";
 import { useUser } from "@clerk/clerk-react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import UseEditFunction from "../functions/UseEditFunction";
 import { LiaEdit } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
+import { setTodoTextForEdit } from "../redux/todoEditSlicer";
 
 const AddTask = ({ refetch }) => {
   const editTask = UseEditFunction();
+  const dispatch = useDispatch()
   const { t } = useTranslation();
 
   const [value, setValue] = useState("");
@@ -19,6 +21,12 @@ const AddTask = ({ refetch }) => {
     console.log(toDoTextForEdit);
     setValue(toDoTextForEdit.value);
   }, [toDoTextForEdit.value]);
+
+  useEffect(()=>{
+    if(value.length === 0){
+      dispatch(setTodoTextForEdit({id: null, value: ''}))
+    }
+  },[value])
 
   const handleValue = (e) => {
     setValue(e.target.value);
