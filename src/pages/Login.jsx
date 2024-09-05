@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import LoginForm from '../components/signInComps/LoginForm'
 import Pattern from '../components/signInComps/Pattern'
-import { useUser } from '@clerk/clerk-react'
-import { useNavigate } from 'react-router-dom'
+
 
 const SignIn = () => {
     
