@@ -7,6 +7,7 @@ import { ClerkProvider } from '@clerk/clerk-react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
+import "./i18next.js"
 
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY

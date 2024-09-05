@@ -7,10 +7,12 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { setBurgerActive } from "../redux/burgerSlicer";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const isBurgerActive = useSelector((state) => state.burgerStore.value);
+  const {t, i18n} = useTranslation()
 
   const handleBurgerMenuClose = () => {
     dispatch(setBurgerActive(false));
@@ -32,11 +34,11 @@ const Sidebar = () => {
           <IoCloseOutline size={40} color="#252931" />
         </span>
 
-        <SideBarItem path="/" title="My Day" icon={sunIcon} />
-        <SideBarItem path="/importants" title="Important" icon={starIcon} />
+        <SideBarItem path="/" title={t("myDay")} icon={sunIcon} />
+        <SideBarItem path="/importants" title={t("importants")} icon={starIcon} />
         <SideBarItem
           path="/dashboard"
-          title="Dashboard"
+          title={t("dashboard")}
           icon={<CiBoxList size={20} />}
         />
       </div>

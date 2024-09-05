@@ -6,6 +6,7 @@ import { dropDownIcon } from "../assets/icons/DropDownIcon";
 import { UserButton } from "@clerk/clerk-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBurgerActive } from "../redux/burgerSlicer";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
 
@@ -13,6 +14,11 @@ const Navbar = () => {
 
   const burgerMenuHandler = () => {
     dispatch(setBurgerActive(true))
+  }
+  const { i18n } = useTranslation()
+  const selectLanguage = () => {
+    
+    i18n.changeLanguage('ge')
   }
 
   return (
@@ -22,7 +28,7 @@ const Navbar = () => {
 
       {/* avatar */}
       <div className="flex itmes-center ml-[47px] lg:ml-[0px]">
-        <div className="hidden lg:flex flex items-center gap-[10px] mr-[14px] cursor-pointer">
+        <div onClick={selectLanguage} className="hidden lg:flex flex items-center gap-[10px] mr-[14px] cursor-pointer">
           <p>EN</p>
           {dropDownIcon}
         </div>

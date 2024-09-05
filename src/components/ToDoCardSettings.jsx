@@ -9,8 +9,10 @@ import UseImportance from "../functions/UseImportance";
 import { useDispatch } from "react-redux";
 import { setTodoTextForEdit } from "../redux/todoEditSlicer";
 import { toastError } from "./ToastError";
+import { useTranslation } from "react-i18next";
 
 const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
+  const { t } = useTranslation();
   const deleteTask = UseDeleteTask();
   const completeRow = CompleteFunction();
   const makeImportant = UseImportance();
@@ -19,11 +21,11 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
 
   const getTextValueFromTask = () => {
     //თუ დასრულებულია ტასკი ჩასწრების უფლება არ აქვს
-    if(complete){
-        toastError('You cant edit completed todo')
-    }else{
-        dispatch(setTodoTextForEdit({ value: text, id: taskId }));
-      }
+    if (complete) {
+      toastError("You cant edit completed todo");
+    } else {
+      dispatch(setTodoTextForEdit({ value: text, id: taskId }));
+    }
   };
 
   return (
@@ -36,7 +38,7 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
         onClick={() => makeImportant(taskId, important, refetch)}
       >
         <span>{starIcon}</span>
-        <p>Importance</p>
+        <p>{t("importnace")}</p>
       </div>
 
       <div
@@ -44,7 +46,7 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
         onClick={() => completeRow(taskId, complete, refetch)}
       >
         <span>{completeIcon}</span>
-        <p>Complete</p>
+        <p>{t("complete")}</p>
       </div>
 
       <div
@@ -52,7 +54,7 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
         onClick={getTextValueFromTask}
       >
         <span>{editIcon}</span>
-        <p>Edit</p>
+        <p>{t("edit")}</p>
       </div>
 
       <div
@@ -60,7 +62,7 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
         onClick={() => deleteTask(taskId, refetch)}
       >
         <span>{deleteIcon}</span>
-        <p>Delete</p>
+        <p>{t("delete")}</p>
       </div>
     </div>
   );

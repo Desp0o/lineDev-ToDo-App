@@ -4,9 +4,11 @@ import { PieChart } from "../components/PieChart";
 import FetchData from "../functions/FetchData";
 import InfoBlock from "../components/InfoBlock";
 import Spinner from "../components/Spinner";
+import { useTranslation } from "react-i18next";
 
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const { data, isLoading } = FetchData();
   const [completeLength, setCompleteLength] = useState(0);
   const [inProgressLength, setInProgressLength] = useState(0);
@@ -39,13 +41,13 @@ const Dashboard = () => {
             md:justify-between md:flex md:gap-[24px]>
             lg:grid lg:grid-cols-2 lg:gap-[16px]  
             1xl:flex 1xl:gap-[24px]">
-            <InfoBlock title="All Tasks" number={data?.length} />
+            <InfoBlock title={t("AllTasks")} number={data?.length} />
             <InfoBlock
-              title="In Progress"
+              title={t("inProgress")}
               number={inProgressLength ? inProgressLength : 0}
             />
-            <InfoBlock title="Stuck" number={2} />
-            <InfoBlock title="Done" number={completeLength} />
+            <InfoBlock title={t("stuck")} number={2} />
+            <InfoBlock title={t("done")} number={completeLength} />
           </div>
 
           <div className="w-full 1xl:w-[1080px]">

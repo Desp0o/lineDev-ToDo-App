@@ -5,10 +5,11 @@ import { useUser } from "@clerk/clerk-react";
 import { useSelector } from "react-redux";
 import UseEditFunction from "../functions/UseEditFunction";
 import { LiaEdit } from "react-icons/lia";
-
+import { useTranslation } from "react-i18next";
 
 const AddTask = ({ refetch }) => {
   const editTask = UseEditFunction();
+  const { t } = useTranslation();
 
   const [value, setValue] = useState("");
   const { user } = useUser();
@@ -33,14 +34,19 @@ const AddTask = ({ refetch }) => {
           {plusIcon}
         </span>
       ) : (
-        <span className="absolute left-[20px] w-[24px] h-[24px] flex items-center justify-center cursor-pointer" onClick={() => editTask(value, refetch)}>{<LiaEdit />}</span>
+        <span
+          className="absolute left-[20px] w-[24px] h-[24px] flex items-center justify-center cursor-pointer"
+          onClick={() => editTask(value, refetch)}
+        >
+          {<LiaEdit />}
+        </span>
       )}
       <input
         className="pl-[34px] w-full"
         type="text"
         value={value}
         onChange={handleValue}
-        placeholder="Add a task"
+        placeholder={t("addTask")}
       />
     </div>
   );
