@@ -58,3 +58,15 @@ input{
   padding: 0 0;
 }
 
+.cl-internal-h2kts3{
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+.cl-internal-ttumny{
+  box-shadow: none !important;
+}
+
+#identifier-field{
+  border-radius: 30px;
+}

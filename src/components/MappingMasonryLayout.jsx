@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import Layout from "./Layout";
 import ToDoCard from "./ToDoCard";
 import { DateFormatter } from "./DateFormatter";
 import AddTask from "./AddTask";
@@ -21,7 +20,7 @@ const MappingMasonryLayout = ({ data, isLoading, refetch }) => {
     <>
       <AddTask refetch={refetch} />
       <div className="flex justify-center mt-[56px]">
-        <div className="md:columns-2 lg:columns-3 1xl:columns-4 break-inside-avoid space-y-[23px] gap-[23px] justify-items-center ">
+        <div className=" md:columns-2 lg:columns-3 1xl:columns-4 space-y-[23px] gap-[23px]">
           {isLoading ? (
             <Spinner />
           ) : data && data.length > 0 ? (
@@ -43,7 +42,7 @@ const MappingMasonryLayout = ({ data, isLoading, refetch }) => {
               );
             })
           ) : (
-            <p className="text-[20px] font-[900] text-center absolute top-1/2 left-1/2">
+            <p className="text-[20px] font-[900] text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-[50px]">
               You Have no ToDos
             </p>
           )}
