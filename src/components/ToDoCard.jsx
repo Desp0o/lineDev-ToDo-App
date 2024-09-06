@@ -16,11 +16,14 @@ const ToDoCard = ({
   important,
   refetch,
 }) => {
-  const rand = Math.floor(Math.random() * 4) + 1;
   const activeIndex = useSelector((state) => state.settingPanelStore.value);
   const dispatch = useDispatch();
   const settingRef = useRef();
   const dotRefs = useRef();
+  const [positions, setPositions] = useState({
+    posX: null,
+    posY: null
+  })
 
   useEffect(() => {
     const handler = (e) => {
@@ -37,28 +40,36 @@ const ToDoCard = ({
     document.addEventListener("mousedown", handler);
   }, []);
 
-  const handleSettings = () => {
+  const handleSettings = (e) => {
     if (index === activeIndex) {
       dispatch(setAactiveIndex(null));
     } else {
       dispatch(setAactiveIndex(index));
     }
+    console.log(e.pageY);
+    console.log(e.pageX);
+    setPositions({...positions, posX: e.pageX, posY: e.pageY})
   };
 
+  const getPosition = (e) => {
+    console.log(e.pageY);
+    console.log(e.pageX);
+  }
+
   return (
-    <div className="relative group/card">
+    <div className="group/card">
       <div
         className="relative w-[343px] lg:w-[252px] px-[16px] py-[12px] rounded-[10px] flex flex-col gap-[22px]
                    hover:drop-shadow-[1px_1px_6px_rgba(0,0,0,0.25)] transition-all"
         style={{
           backgroundColor:
-            rand === 1
+            bg === 1
               ? "#FBF0E4"
-              : rand === 2
+              : bg === 2
               ? "#FCE4F5"
-              : rand === 3
+              : bg === 3
               ? "#E7E4FC"
-              : rand === 4
+              : bg === 4
               ? "#FCE4E4"
               : "#E4F6FC",
         }}
@@ -75,13 +86,13 @@ const ToDoCard = ({
             className="flex gap-[10px] items-center px-[14px] py-[4px] bg-black w-fit rounded-[30px]"
             style={{
               backgroundColor:
-                rand === 1
+                bg === 1
                   ? "#FDF8F2"
-                  : rand === 2
+                  : bg === 2
                   ? "#FDF2FA"
-                  : rand === 3
+                  : bg === 3
                   ? "#F3F1FD"
-                  : rand === 4
+                  : bg === 4
                   ? "#FDF1F1"
                   : "#F1FAFD",
             }}
@@ -108,10 +119,13 @@ const ToDoCard = ({
 
       {activeIndex === index && (
         <div
-          className="absolute -bottom-[160px] left-[30px] z-10 group/card"
-          ref={settingRef}
-        >
+        className="absolute z-10 group/card"
+        ref={settingRef}
+        style={{ top: positions.posY - 180, left: positions.posX - (window.innerWidth > 1023 ? 515 : 210)}}
+      >
           <ToDoCardSettings
+          posX={positions.posX}
+          posY={positions.posY}
             text={text}
             refetch={refetch}
             taskId={taskId}

@@ -18,7 +18,6 @@ const AddTask = ({ refetch }) => {
   const toDoTextForEdit = useSelector((state) => state.todoEditStore);
 
   useEffect(() => {
-    console.log(toDoTextForEdit);
     setValue(toDoTextForEdit.value);
   }, [toDoTextForEdit.value]);
 

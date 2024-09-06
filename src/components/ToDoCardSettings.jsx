@@ -16,10 +16,9 @@ const ToDoCardSettings = ({ taskId, complete, refetch, important, text }) => {
   const deleteTask = UseDeleteTask();
   const completeRow = CompleteFunction();
   const makeImportant = UseImportance();
-
   const dispatch = useDispatch();
 
-  const getTextValueFromTask = () => {
+  const getTextValueFromTask = () => {    
     //თუ დასრულებულია ტასკი ჩასწრების უფლება არ აქვს
     if (complete) {
       toastError("You cant edit completed todo");

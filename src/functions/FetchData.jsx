@@ -23,9 +23,6 @@ const FetchData = () => {
     staleTime: 50 * 1000 * 60,
   });
 
-  if (data) {
-    console.log(data);
-  }
 
   return { data, isLoading, refetch };
 };

@@ -28,9 +28,7 @@ const CompleteFunction = () => {
       }else{
         notifySuccess("Marked as complete")
       }
-    }
-    console.log(taskId);
-    
+    }    
   };
 
   return completeRow

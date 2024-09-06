@@ -10,7 +10,6 @@ const UseImportance = () => {
     const dispatch = useDispatch()
 
     const makeImportant = async (taskId, important, refetch) => {
-        console.log(important);
 
         const { data, error } = await supabase
             .from('todos')

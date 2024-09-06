@@ -16,7 +16,6 @@ const UseEditFunction = () => {
             .update({ description: value })
             .eq('id', taskIdForEdit.id)
             .select()
-            console.log(value);
             
         if (error) {
             console.log(error);

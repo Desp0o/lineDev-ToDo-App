@@ -13,21 +13,22 @@ const MappingMasonryLayout = ({ data, isLoading, refetch }) => {
     if (isEditing && isEditing.value.length !== 0) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    console.log(isEditing.value);
   }, [isEditing.value]);
 
   return (
     <>
       <AddTask refetch={refetch} />
-      <div className="flex justify-center mt-[56px]">
+      <div className="relative flex justify-center mt-[56px] pb-[100px]">
         <div className=" md:columns-2 lg:columns-3 1xl:columns-4 space-y-[23px] gap-[23px]">
           {isLoading ? (
             <Spinner />
           ) : data && data.length > 0 ? (
             data.map((toDo, index) => {
+              const rand = Math.floor(Math.random() * 4) + 1;
               return (
                 <div className="break-inside-avoid" key={index}>
                   <ToDoCard
+                  bg={rand}
                     index={index}
                     text={toDo.description}
                     date={<DateFormatter dateProp={toDo.created_at} />}
