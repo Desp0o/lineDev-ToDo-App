@@ -1,4 +1,3 @@
-import React from "react";
 import { starIcon } from "../assets/icons/starIcon";
 import { completeIcon } from "../assets/icons/completeIcon";
 import { editIcon } from "../assets/icons/editIcon";

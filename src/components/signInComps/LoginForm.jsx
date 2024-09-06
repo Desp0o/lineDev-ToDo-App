@@ -1,7 +1,5 @@
 import React from "react";
-// import SignInButton from './SignInButton'
 import { SignIn } from "@clerk/clerk-react";
-import RegisterPage from "../../pages/RegisterPage";
 
 const LoginForm = () => {
   return (
