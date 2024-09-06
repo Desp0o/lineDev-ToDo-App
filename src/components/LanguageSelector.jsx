@@ -16,7 +16,7 @@ const LanguageSelector = () => {
   return (
     <div
       onClick={selectLanguage}
-      className="hidden lg:flex flex items-center gap-[10px] mr-[14px] cursor-pointer"
+      className="lg:flex flex items-center gap-[10px] mr-[14px] cursor-pointer"
     >
       <p>{i18n.language === 'ge' ? "EN" : "GE"}</p>
     </div>
