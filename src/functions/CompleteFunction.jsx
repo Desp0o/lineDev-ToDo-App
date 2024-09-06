@@ -15,7 +15,6 @@ const CompleteFunction = () => {
       .update({ complate: !complete })
       .eq('id', taskId)
       .select()
-    console.log(complete);
     
     if (error) {
       toastError("Can't mark Todo as complete")

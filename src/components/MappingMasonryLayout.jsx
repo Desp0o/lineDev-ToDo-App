@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-
 import ToDoCard from "./ToDoCard";
 import { DateFormatter } from "./DateFormatter";
 import AddTask from "./AddTask";
-import Spinner from "./Spinner";
+import Loader from "./Loader";
 
 const MappingMasonryLayout = ({ data, isLoading, refetch }) => {
   const isEditing = useSelector((state) => state.todoEditStore);
@@ -21,7 +20,7 @@ const MappingMasonryLayout = ({ data, isLoading, refetch }) => {
       <div className="relative flex justify-center mt-[56px] pb-[100px]">
         <div className=" md:columns-2 lg:columns-3 1xl:columns-4 space-y-[23px] gap-[23px]">
           {isLoading ? (
-            <Spinner />
+            <Loader />
           ) : data && data.length > 0 ? (
             data.map((toDo, index) => {
               return (

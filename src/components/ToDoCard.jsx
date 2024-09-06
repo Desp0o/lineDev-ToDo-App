@@ -45,15 +45,9 @@ const ToDoCard = ({
     } else {
       dispatch(setAactiveIndex(index));
     }
-    console.log(e.pageY);
-    console.log(e.pageX);
     setPositions({...positions, posX: e.pageX, posY: e.pageY})
   };
 
-  const getPosition = (e) => {
-    console.log(e.pageY);
-    console.log(e.pageX);
-  }
 
   return (
     <div className="group/card">

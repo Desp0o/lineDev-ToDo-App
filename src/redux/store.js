@@ -3,13 +3,15 @@ import settingSlicer from "./settingSlicer";
 import todoEditSlicer from "./todoEditSlicer";
 import burgerSlicer from "./burgerSlicer";
 import searchSlicer from "./searchSlicer";
+import addTaskSlicer from "./addTaskSlicer";
 
 const store = configureStore({
     reducer:{
         settingPanelStore: settingSlicer,
         todoEditStore: todoEditSlicer,
         burgerStore: burgerSlicer,
-        searchStore: searchSlicer
+        searchStore: searchSlicer,
+        taskIconStore: addTaskSlicer
     }
 })
 
