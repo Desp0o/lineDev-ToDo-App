@@ -35,11 +35,29 @@
 | Supabase         | Backend         |
 
 
-![App Screenshot](https://i.ibb.co/y4vBBDN/Screenshot-2024-09-07-at-12-35-32-AM.png)
 
-![App Screenshot](https://i.ibb.co/mGDJVDC/Screenshot-2024-09-07-at-12-32-06-AM.png)
+## Run Locally
 
+Clone the project
 
-![App Screenshot](https://i.ibb.co/wQ9j1ZG/Screenshot-2024-09-07-at-12-32-14-AM.png)
+```bash
+  git clone https://github.com/Desp0o/lineDev-ToDo-App.git
+```
 
-![App Screenshot](https://i.ibb.co/WHQk9Qp/Screenshot-2024-09-07-at-12-35-24-AM.png)
+Go to the project directory
+
+```bash
+  cd lineDev-ToDo-App
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
