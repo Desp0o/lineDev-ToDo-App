@@ -1,22 +1,21 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { SignedIn, SignedOut, SignIn, useAuth } from "@clerk/clerk-react";
-import SSOCallback from "./pages/SsoCallback";
+import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-react";
 import ImportantPage from "./pages/ImportantPage";
 import Spinner from "./components/Spinner";
 import RegisterPage from "./pages/RegisterPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const {isLoaded} = useAuth()
+  const { isLoaded } = useAuth();
 
   if (!isLoaded) {
-    return <Spinner />
+    return <Spinner />;
   }
-
 
   return (
     <>
@@ -36,17 +35,34 @@ function App() {
             </>
           }
         />
+
+        <Route element={<ProtectedRoute />}>
+          <Route
+            path="/dashboard"
+            element={
+              <SignedIn>
+                <Dashboard />
+              </SignedIn>
+            }
+          />
+          <Route
+            path="/importants"
+            element={
+              <SignedIn>
+                <ImportantPage />
+              </SignedIn>
+            }
+          />
+        </Route>
+
         <Route
-          path="/dashboard"
+          path="/sign-up"
           element={
-            <SignedIn>
-              <Dashboard />
-            </SignedIn>
+            <SignedOut>
+              <RegisterPage />
+            </SignedOut>
           }
         />
-        <Route path="/sso-callback" element={<SSOCallback />} />
-        <Route path="/importants" element={<ImportantPage />} />
-        <Route path="/sign-up" element={<RegisterPage />} />
         <Route
           path="*"
           element={

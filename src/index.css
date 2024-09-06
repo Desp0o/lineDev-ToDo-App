@@ -40,7 +40,8 @@ input{
 
 .cl-internal-lk7758,
 .cl-internal-df7v37,
-.cl-internal-13u79ez{
+.cl-internal-13u79ez,
+.cl-internal-1dauvpw{
   display: none !important;
 }
 
@@ -70,3 +71,29 @@ input{
 #identifier-field{
   border-radius: 30px;
 }
+
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #000000;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

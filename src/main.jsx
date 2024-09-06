@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
@@ -23,11 +23,11 @@ createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={queryClient}>
     <StrictMode>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-        <BrowserRouter>
+        <HashRouter>
           <Provider store={store}>
             <App />
           </Provider>
-        </BrowserRouter>
+        </HashRouter>
       </ClerkProvider>
     </StrictMode>
   </QueryClientProvider>

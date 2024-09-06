@@ -25,7 +25,8 @@ i18next
           taskByStatus:"Task by Status",
           AllTasks:"All Tasks",
           done:"Done",
-          stuck:"Stuck"
+          stuck:"Stuck",
+          noData:"You have no data"
         },
       },
       ge: {
@@ -43,7 +44,8 @@ i18next
           taskByStatus:"ტასკები ჩარტი",
           AllTasks:"ყველა ტასკი",
           done:"დასრულებული",
-          stuck:"გაჭედილი"
+          stuck:"გაჭედილი",
+          noData:"ინფორმაცია არ არის"
         },
       },
     },

@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 ChartJS.register(Title, Tooltip, ArcElement);
 
 export const PieChart = ({
+  isData,
   completedTodos,
   inProgessTodos,
   importantTodos,
@@ -40,30 +41,38 @@ export const PieChart = ({
     ],
   };
   return (
-    <div className="w-full bg-[#FFFFFF] rounded-[8px] border-[1px] border-[#E7E8EA] px-[14px] pt-[12px] pb-[60px]">
-      <p className="text-center lg:text-start text-[16px] lg:text-[20px] leading-[20px] lg:leading-[20px] border-b pb-[12px]">
-        {t("taskByStatus")}
-      </p>
+    <div className="w-full bg-[#FFFFFF] min-h-[300px] rounded-[8px] border-[1px] border-[#E7E8EA] px-[14px] pt-[12px] pb-[60px]">
+      {isData ? (
+        <div className="w-full min-h-[200px] flex items-center justify-center">
+          <p className="text-[18px]">{t("noData")}</p>
+          </div>
+      ) : (
+        <>
+          <p className="text-center lg:text-start text-[16px] lg:text-[20px] leading-[20px] lg:leading-[20px] border-b pb-[12px]">
+            {t("taskByStatus")}
+          </p>
 
-      {/* chart */}
-      <div className="mt-[32px] w-full flex flex-col lg:flex-row items-center lg:justify-center gap-[24px]">
-        <div className="flex items-center justify-center w-[232px] h-[226px] lg:w-[330px]">
-          <Pie data={data} />
-        </div>
+          {/* chart */}
+          <div className="mt-[32px] w-full flex flex-col lg:flex-row items-center lg:justify-center gap-[24px]">
+            <div className="flex items-center justify-center w-[232px] h-[226px] lg:w-[330px]">
+              <Pie data={data} />
+            </div>
 
-        {/* legend */}
-        <div className="flex flex-col gap-[16px] b-black">
-          {legendArray.map((item, index) => {
-            return (
-              <LegendComponent
-                key={index}
-                color={item.color}
-                status={item.status}
-              />
-            );
-          })}
-        </div>
-      </div>
+            {/* legend */}
+            <div className="flex flex-col gap-[16px] b-black">
+              {legendArray.map((item, index) => {
+                return (
+                  <LegendComponent
+                    key={index}
+                    color={item.color}
+                    status={item.status}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
