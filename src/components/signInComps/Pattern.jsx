@@ -212,7 +212,7 @@ const Pattern = () => {
     ]
 
     return (
-        <div className='hidden xl:block gap-x-[5px] gap-y-[10px] columns-3 overflow-hidden'>
+        <div className='hidden xl:block gap-x-[5px] gap-y-[10px] columns-3 overflow-hidden xl:min-w-[496px]'>
             {
                 cardsArray.map((item, index) => {
                     return (
