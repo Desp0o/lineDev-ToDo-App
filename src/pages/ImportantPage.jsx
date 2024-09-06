@@ -1,12 +1,16 @@
+import { useEffect, useState } from "react";
 import React from "react";
 import Layout from "../components/Layout";
 import { useUser } from "@clerk/clerk-react";
 import { supabase } from "../supabaseConfig";
 import { useQuery } from "react-query";
+import { useSelector } from "react-redux";
 import MappingMasonryLayout from "../components/MappingMasonryLayout";
 
 const ImportantPage = () => {
   const { user } = useUser();
+
+  const searchRedux = useSelector((state) => state.searchStore.value);
 
   const fetchImportants = async () => {
     let { data, error } = await supabase
@@ -23,7 +27,7 @@ const ImportantPage = () => {
     return data;
   };
 
-  const { data, isLoading, isError } = useQuery(
+  const { data, isLoading, isError, refetch } = useQuery(
     ["important-todos", user?.id],
     fetchImportants,
     {
@@ -31,10 +35,31 @@ const ImportantPage = () => {
       retry: true,
     }
   );
+  const [newData, setNewData] = useState(data);
+
+  useEffect(() => {
+    if (searchRedux.length > 0) {
+      const filteredData = data?.filter((note) =>
+        note.description.includes(searchRedux)
+      );
+      setNewData(filteredData);
+    }
+    if (searchRedux.length === 0) {
+      setNewData(data);
+    }
+  }, [searchRedux, data]);
+
+  useEffect(()=>{
+    refetch()
+  },[])
 
   return (
     <Layout>
-      <MappingMasonryLayout data={data} isLoading={isLoading} />
+      <MappingMasonryLayout
+        data={newData}
+        isLoading={isLoading}
+        refetch={refetch}
+      />
     </Layout>
   );
 };
