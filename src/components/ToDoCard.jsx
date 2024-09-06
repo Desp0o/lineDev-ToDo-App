@@ -9,7 +9,6 @@ import { MdLabelImportant } from "react-icons/md";
 const ToDoCard = ({
   date,
   text,
-  bg,
   index,
   taskId,
   complete,
@@ -63,13 +62,13 @@ const ToDoCard = ({
                    hover:drop-shadow-[1px_1px_6px_rgba(0,0,0,0.25)] transition-all"
         style={{
           backgroundColor:
-            bg === 1
+            taskId % 4 === 0
               ? "#FBF0E4"
-              : bg === 2
+              : taskId % 4 === 1
               ? "#FCE4F5"
-              : bg === 3
+              : taskId % 4 === 2
               ? "#E7E4FC"
-              : bg === 4
+              : taskId % 4 === 3
               ? "#FCE4E4"
               : "#E4F6FC",
         }}
@@ -86,13 +85,13 @@ const ToDoCard = ({
             className="flex gap-[10px] items-center px-[14px] py-[4px] bg-black w-fit rounded-[30px]"
             style={{
               backgroundColor:
-                bg === 1
+                taskId % 4 === 0
                   ? "#FDF8F2"
-                  : bg === 2
+                  : taskId % 4 === 1
                   ? "#FDF2FA"
-                  : bg === 3
+                  : taskId % 4 === 2
                   ? "#F3F1FD"
-                  : bg === 4
+                  : taskId % 4 === 3
                   ? "#FDF1F1"
                   : "#F1FAFD",
             }}
