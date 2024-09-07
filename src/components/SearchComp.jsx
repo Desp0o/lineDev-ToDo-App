@@ -24,7 +24,7 @@ const SearchComp = () => {
   };
 
   return (
-    <div className="hidden lg:flex w-[460px] h-[40px] relative">
+    <div className="flex w-[320px] lg:w-[460px] h-[40px] relative">
       <span className="absolute left-[14px] top-[9px]">{bigSearchIcon}</span>
       <input
         type="text"

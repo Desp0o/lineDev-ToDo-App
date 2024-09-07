@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import React from "react";
 import Layout from "../components/Layout";
 import { useUser } from "@clerk/clerk-react";
 import { supabase } from "../supabaseConfig";
@@ -27,7 +26,7 @@ const ImportantPage = () => {
     return data;
   };
 
-  const { data, isLoading, isError, refetch } = useQuery(
+  const { data, isLoading, refetch } = useQuery(
     ["important-todos", user?.id],
     fetchImportants,
     {

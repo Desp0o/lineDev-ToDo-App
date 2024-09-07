@@ -83,10 +83,10 @@ input{
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 
-  position: absolute;
-  left: 50%;
+  position: fixed;
+  left: calc(50% - 25px);
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(50%,calc(-50% + 25px));
 }
 
 @keyframes rotation {
@@ -97,5 +97,4 @@ input{
     transform: rotate(360deg);
   }
 } 
-
 
