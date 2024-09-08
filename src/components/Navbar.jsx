@@ -29,7 +29,7 @@ const Navbar = () => {
 
         {/* avatar */}
         <div className="flex itmes-center ml-[47px] lg:ml-[0px]">
-          <span className="lg:block hidden">
+          <span className="lg:flex hidden">
             <LanguageSelector />
           </span>
           {window.innerWidth > 1023 && (
