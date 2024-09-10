@@ -8,8 +8,6 @@ export const UseDeleteTask = () => {
     const dispatch = useDispatch();
 
     const deleteTask = async (taskId, refetch) => {
-        console.log("deleting");
-        
         const { error } = await supabase
             .from('todos')
             .delete()
