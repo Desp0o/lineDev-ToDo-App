@@ -9,8 +9,8 @@ import { setInputEmpty } from "../redux/addTaskSlicer";
 const AddFunction = () => {
   const dispatch = useDispatch()
 
-   const addTask = async (userId, todoValue, refetch) => {
-    
+   const addTask = async (e, userId, todoValue, refetch) => {
+    e.preventDefault()
     if (todoValue.length > 0) {
       const { data, error } = await supabase
         .from('todos')

@@ -10,7 +10,8 @@ const UseEditFunction = () => {
     //todo id from redux
     const taskIdForEdit = useSelector(state => state.todoEditStore)
 
-    const editTask = async (value, refetch) => {
+    const editTask = async (e, value, refetch) => {
+        e.preventDefault();
         const { data, error } = await supabase
             .from('todos')
             .update({ description: value })
